@@ -72,8 +72,24 @@
       font-size: 1.5rem;
     }
 
-    h2::before {
-      content: "\1F4C5";
+    /* Section-specific heading icons */
+    #personal h2::before {
+      content: "🧍";
+      margin-right: 0.5rem;
+    }
+
+    #education h2::before {
+      content: "🎓";
+      margin-right: 0.5rem;
+    }
+
+    #family h2::before {
+      content: "👨‍👩‍👧‍👦";
+      margin-right: 0.5rem;
+    }
+
+    #contact h2::before {
+      content: "📞";
       margin-right: 0.5rem;
     }
 
@@ -181,6 +197,7 @@
   </header>
 
   <div class="container">
+
     <!-- Personal Details Section -->
     <section id="personal">
       <h2>Personal Details</h2>
@@ -197,14 +214,14 @@
     </section>
 
     <!-- Education Section -->
-    <section>
+    <section id="education">
       <h2>Education</h2>
       <p class="info"><strong>B.E. (Information Technology)</strong> - Samrat Ashok Technological Institute, Vidisha (2019)</p>
       <p class="info"><strong>M.Tech (Computer Engineering)</strong> - NIT Kurukshetra (2023)</p>
     </section>
 
     <!-- Family Details Section -->
-    <section>
+    <section id="family">
       <h2>Family Details</h2>
       <p class="info"><strong>Father:</strong> Mr. Gopal Bhagat (Advocate)</p>
       <p class="info"><strong>Mother:</strong> Mrs. Reeta Bhagat (Housewife)</p>
@@ -213,16 +230,17 @@
     </section>
 
     <!-- Contact Information Section -->
-    <section>
+    <section id="contact">
       <h2>Contact Information</h2>
       <p class="info"><strong>Contact Person:</strong> Mr. Gopal Bhagat</p>
       <p class="info"><strong>Phone:</strong> 8839031909</p>
       <p class="info"><strong>Email:</strong> bhagatgopa197@gmail.com</p>
       <p class="info"><strong>Address:</strong> House No. 54, Ward No. 35, Bhagat STD, Rajpura, Burhanpur (M. P.)</p>
     </section>
+
   </div>
 
-  <!-- JavaScript for scroll-based animation -->
+  <!-- Scroll-based animation using IntersectionObserver -->
   <script>
     const sections = document.querySelectorAll('section');
 
