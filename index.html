@@ -1,57 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Bhavesh Bhagat - Bio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet"/>
   <style>
-    /* [Same CSS as before] */
-    /* ... Keep existing CSS ... */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
 
-    /* Additional styles for interactivity */
-    .toggle-btn {
+    body {
+      background: linear-gradient(135deg, #d0eaff, #e0c3fc);
+      color: #333;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    header {
       background-color: #4a00e0;
       color: white;
-      border: none;
-      padding: 0.5rem 1rem;
-      border-radius: 8px;
-      cursor: pointer;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      animation: slideDown 1s ease-in-out;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    header h1:hover {
+      transform: scale(1.1);
+      color: #ff7f50;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 2rem;
+    }
+
+    section {
+      margin-bottom: 2.5rem;
+      background: linear-gradient(135deg, #ffffff, #f3e9ff);
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      transform: scale(0.9);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+      position: relative;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    h2 {
+      color: #4a00e0;
       margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      transition: color 0.3s ease;
     }
 
-    .dark-mode {
-      background: #1a1a2e;
-      color: #f5f5f5;
+    h2::before {
+      content: "\1F4C5";
+      margin-right: 0.5rem;
     }
 
-    .dark-mode section {
-      background: #22223b;
+    h2:hover {
+      color: #6a00e0;
     }
 
-    .hidden {
-      display: none;
+    .info {
+      margin-bottom: 0.8rem;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .info:hover {
+      color: #6a00e0;
+      transform: translateX(10px);
+    }
+
+    .photo-top-right {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+
+    .photo-top-right img {
+      width: 250px;
+      height: 250px;
+      object-fit: cover;
+      border: 5px solid #4a00e0;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      transition: transform 0.4s ease;
+    }
+
+    .photo-top-right img:hover {
+      transform: scale(1.05);
+    }
+
+    @keyframes slideDown {
+      from {
+        transform: translateY(-20px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
     }
   </style>
 </head>
-
 <body>
+
   <header>
     <h1>Bhavesh Bhagat</h1>
     <p>Engineer at RadiSys Corporation, Bangalore</p>
-    <button class="toggle-btn" onclick="toggleDarkMode()">Toggle Dark Mode</button>
   </header>
 
   <div class="container">
-    <div class="photo-section">
-      <!-- Updated image path for local GitHub root image -->
-      <img src="./pic.jpg" alt="Bhavesh Bhagat Photo" />
-    </div>
-
-    <button class="toggle-btn" onclick="toggleSection('personal')">Toggle Personal Details</button>
+    <!-- Personal Details Section -->
     <section id="personal">
       <h2>Personal Details</h2>
+      <div class="photo-top-right">
+        <img src="./pic1.jpg" alt="Bhavesh Bhagat Photo" />
+      </div>
       <p class="info"><strong>Date of Birth:</strong> 10/10/1997</p>
       <p class="info"><strong>Place of Birth:</strong> Burhanpur</p>
       <p class="info"><strong>Time of Birth:</strong> 12:17 PM</p>
@@ -61,39 +143,50 @@
       <p class="info"><strong>Gotra:</strong> Haldiya</p>
     </section>
 
+    <!-- Education Section -->
     <section>
       <h2>Education</h2>
       <p class="info"><strong>B.E. (Information Technology)</strong> - Samrat Ashok Technological Institute, Vidisha (2019)</p>
       <p class="info"><strong>M.Tech (Computer Engineering)</strong> - NIT Kurukshetra (2023)</p>
     </section>
 
+    <!-- Family Details Section -->
     <section>
       <h2>Family Details</h2>
-      <p class="info"><strong>Father:</strong> Sh. Gopal Bhagat (Advocate)</p>
-      <p class="info"><strong>Mother:</strong> Smt. Reeta Bhagat (Housewife)</p>
-      <p class="info"><strong>Sister:</strong> Sakshi Bhagat</p>
-      <p class="info"><strong>Brother:</strong> Vaibhav Bhagat</p>
+      <p class="info"><strong>Father:</strong> Mr. Gopal Bhagat (Advocate)</p>
+      <p class="info"><strong>Mother:</strong> Mrs. Reeta Bhagat (Housewife)</p>
+      <p class="info"><strong>Sister:</strong> Sakshi Bhagat (L.L.B. & L.L.M.)</p>
+      <p class="info"><strong>Brother:</strong> Vaibhav Bhagat (B.E. AIADS)</p>
     </section>
 
+    <!-- Contact Information Section -->
     <section>
       <h2>Contact Information</h2>
-      <p class="info"><strong>Contact Person:</strong> Sh. Gopal Bhagat</p>
-      <p class="info" onclick="alert('Calling 8839031909...')"><strong>Phone:</strong> 8839031909</p>
+      <p class="info"><strong>Contact Person:</strong> Mr. Gopal Bhagat</p>
+      <p class="info"><strong>Phone:</strong> 8839031909</p>
       <p class="info"><strong>Email:</strong> bhagatgopa197@gmail.com</p>
       <p class="info"><strong>Address:</strong> House No. 54, Ward No. 35, Bhagat STD, Rajpura, Burhanpur (M. P.)</p>
     </section>
   </div>
 
+  <!-- JavaScript for scroll pop-in and pop-out -->
   <script>
-    function toggleDarkMode() {
-      document.body.classList.toggle('dark-mode');
-    }
+    const sections = document.querySelectorAll('section');
 
-    function toggleSection(id) {
-      const section = document.getElementById(id);
-      section.classList.toggle('hidden');
-    }
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        } else {
+          entry.target.classList.remove('visible');
+        }
+      });
+    }, {
+      threshold: 0.4
+    });
+
+    sections.forEach(section => observer.observe(section));
   </script>
-</body>
 
+</body>
 </html>
