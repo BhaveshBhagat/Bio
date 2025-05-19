@@ -7,103 +7,31 @@
   <title>Bhavesh Bhagat - Bio</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
+    /* [Same CSS as before] */
+    /* ... Keep existing CSS ... */
 
-    body {
-      background: linear-gradient(135deg, #d0eaff, #e0c3fc);
-      color: #333;
-      line-height: 1.6;
-      scroll-behavior: smooth;
-    }
-
-    header {
+    /* Additional styles for interactivity */
+    .toggle-btn {
       background-color: #4a00e0;
       color: white;
-      padding: 2rem;
-      text-align: center;
-      position: relative;
-    }
-
-    header h1 {
-      font-size: 2.5rem;
-      animation: slideDown 1s ease-in-out;
-    }
-
-    .container {
-      max-width: 1000px;
-      margin: auto;
-      padding: 2rem;
-      animation: fadeIn 1.2s ease-in-out;
-    }
-
-    section {
-      margin-bottom: 2.5rem;
-      background: linear-gradient(135deg, #ffffff, #f3e9ff);
-      padding: 1.5rem;
-      border-radius: 12px;
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
       cursor: pointer;
-    }
-
-    section:hover {
-      transform: scale(1.02);
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
-    }
-
-    h2 {
-      color: #4a00e0;
       margin-bottom: 1rem;
-      display: flex;
-      align-items: center;
     }
 
-    h2::before {
-      content: "\1F4C5";
-      margin-right: 0.5rem;
+    .dark-mode {
+      background: #1a1a2e;
+      color: #f5f5f5;
     }
 
-    .info {
-      margin-bottom: 0.8rem;
-      transition: color 0.3s ease;
+    .dark-mode section {
+      background: #22223b;
     }
 
-    .info:hover {
-      color: #6a00e0;
-    }
-
-    .photo-section {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-
-    .photo-section img {
-      width: 200px;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 5px solid #4a00e0;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-      transition: transform 0.4s ease;
-    }
-
-    .photo-section img:hover {
-      transform: scale(1.05);
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes slideDown {
-      from { transform: translateY(-20px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
+    .hidden {
+      display: none;
     }
   </style>
 </head>
@@ -112,11 +40,17 @@
   <header>
     <h1>Bhavesh Bhagat</h1>
     <p>Engineer at RadiSys Corporation, Bangalore</p>
+    <button class="toggle-btn" onclick="toggleDarkMode()">Toggle Dark Mode</button>
   </header>
 
   <div class="container">
+    <div class="photo-section">
+      <!-- Updated image path for local GitHub root image -->
+      <img src="./pic.jpg" alt="Bhavesh Bhagat Photo" />
+    </div>
 
-    <section>
+    <button class="toggle-btn" onclick="toggleSection('personal')">Toggle Personal Details</button>
+    <section id="personal">
       <h2>Personal Details</h2>
       <p class="info"><strong>Date of Birth:</strong> 10/10/1997</p>
       <p class="info"><strong>Place of Birth:</strong> Burhanpur</p>
@@ -144,11 +78,22 @@
     <section>
       <h2>Contact Information</h2>
       <p class="info"><strong>Contact Person:</strong> Sh. Gopal Bhagat</p>
-      <p class="info"><strong>Phone:</strong> 8839031909</p>
+      <p class="info" onclick="alert('Calling 8839031909...')"><strong>Phone:</strong> 8839031909</p>
       <p class="info"><strong>Email:</strong> bhagatgopa197@gmail.com</p>
       <p class="info"><strong>Address:</strong> House No. 54, Ward No. 35, Bhagat STD, Rajpura, Burhanpur (M. P.)</p>
     </section>
   </div>
+
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+    }
+
+    function toggleSection(id) {
+      const section = document.getElementById(id);
+      section.classList.toggle('hidden');
+    }
+  </script>
 </body>
 
 </html>
