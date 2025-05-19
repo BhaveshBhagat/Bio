@@ -19,6 +19,7 @@
       line-height: 1.6;
       scroll-behavior: smooth;
       transition: background 0.3s, color 0.3s;
+      overflow-x: hidden;
     }
 
     header {
@@ -68,6 +69,7 @@
       display: flex;
       align-items: center;
       transition: color 0.3s ease;
+      font-size: 1.5rem;
     }
 
     h2::before {
@@ -82,6 +84,7 @@
     .info {
       margin-bottom: 0.8rem;
       transition: color 0.3s ease, transform 0.3s ease;
+      font-size: 1rem;
     }
 
     .info:hover {
@@ -116,6 +119,56 @@
       to {
         transform: translateY(0);
         opacity: 1;
+      }
+    }
+
+    /* Responsive Styling for Mobile Devices */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+
+      .container {
+        padding: 1rem;
+      }
+
+      section {
+        padding: 1rem;
+      }
+
+      .photo-top-right {
+        position: static;
+        margin: 0 auto 1rem;
+        display: flex;
+        justify-content: center;
+      }
+
+      .photo-top-right img {
+        width: 200px;
+        height: 200px;
+      }
+
+      h2 {
+        font-size: 1.3rem;
+      }
+
+      .info {
+        font-size: 0.95rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .photo-top-right img {
+        width: 160px;
+        height: 160px;
+      }
+
+      h2 {
+        font-size: 1.1rem;
+      }
+
+      .info {
+        font-size: 0.9rem;
       }
     }
   </style>
@@ -169,7 +222,7 @@
     </section>
   </div>
 
-  <!-- JavaScript for scroll pop-in and pop-out -->
+  <!-- JavaScript for scroll-based animation -->
   <script>
     const sections = document.querySelectorAll('section');
 
